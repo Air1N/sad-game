@@ -4,8 +4,28 @@ function keyEvents() {
     if (keyDown("w")) {
         if (players[userID].onground) {
             players[userID].velocity.y = -20;
-            
+
             socket.emit('jump', userID);
+        }
+    }
+
+    if (keyDown("a")) {
+        if (players[userID].velocity.x != -5) {
+            players[userID].velocity.x = -5;
+        
+            socket.emit('left', userID);
+        }
+    } else if (keyDown("d")) {
+        if (players[userID].velocity.x != 5) {
+            players[userID].velocity.x = 5;
+        
+            socket.emit('right', userID);
+        }
+    } else {
+        if (players[userID].velocity.x !== 0) {
+            players[userID].velocity.x = 0;
+
+            socket.emit('idle', userID);
         }
     }
 }

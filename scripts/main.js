@@ -7,7 +7,9 @@ function move() {
     for (let id in players) {
         players[id].velocity.y += world.gravity;
         players[id].y += players[id].velocity.y;
-
+        
+        players[id].x += players[id].velocity.x;
+        
         if (players[id].y + players[id].height < world.bottom) {
             players[id].onground = false;
         } else {
@@ -42,6 +44,24 @@ socket.on('id', function(uID) {
 socket.on('jump', function(uID) {
     if (uID !== userID) {
         players[userID].velocity.y = -20;
+    }
+});
+
+socket.on('left', function(uID) {
+    if (uID !== userID) {
+        players[userID].velocity.x = -5;
+    }
+});
+
+socket.on('right', function(uID) {
+    if (uID !== userID) {
+        players[userID].velocity.x = 5;
+    }
+});
+
+socket.on('idle', function(uID) {
+    if (uID !== userID) {
+        players[userID].velocity.x = 0;
     }
 });
 
