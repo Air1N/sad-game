@@ -4,6 +4,8 @@ function keyEvents() {
     if (keyDown("w")) {
         if (players[userID].onground) {
             players[userID].velocity.y = -20;
+            
+            socket.emit('jump', userID);
         }
     }
 }

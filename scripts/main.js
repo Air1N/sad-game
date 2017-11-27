@@ -13,7 +13,7 @@ function move() {
         } else {
             players[id].onground = true;
         }
-        
+
         if (players[id].onground) {
             players[id].y = world.bottom - players[id].height;
             players[id].velocity.y = 0;
@@ -37,6 +37,12 @@ socket.on('initValues', function(data) {
 
 socket.on('id', function(uID) {
     if (userID === null) userID = uID;
+});
+
+socket.on('jump', function(uID) {
+    if (uID !== userID) {
+        players[userID].velocity.y = -20;
+    }
 });
 
 setInterval(update, 1000 / 100);
