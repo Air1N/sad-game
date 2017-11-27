@@ -43,25 +43,25 @@ socket.on('id', function(uID) {
 
 socket.on('jump', function(uID) {
     if (uID !== userID) {
-        players[userID].velocity.y = -20;
+        players[uID].velocity.y = -20;
     }
 });
 
 socket.on('left', function(uID) {
     if (uID !== userID) {
-        players[userID].velocity.x = -5;
+        players[uID].velocity.x = -5;
     }
 });
 
 socket.on('right', function(uID) {
     if (uID !== userID) {
-        players[userID].velocity.x = 5;
+        players[uID].velocity.x = 5;
     }
 });
 
 socket.on('idle', function(uID) {
     if (uID !== userID) {
-        players[userID].velocity.x = 0;
+        players[uID].velocity.x = 0;
     }
 });
 
