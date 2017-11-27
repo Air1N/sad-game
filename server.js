@@ -43,6 +43,13 @@ function Player() {
     this.x = 0;
     this.y = 0;
     
-    this.width = 10;
-    this.height = 10;
+    this.velocity = {
+        x: 0,
+        y: 0
+    };
+
+    this.width = 250;
+    this.height = 200;
+    
+    this.onground = false;
 }
