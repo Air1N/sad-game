@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
 let userID = 0;
 let clientID = 0;
 let idList = [];
-let players = [];
+let players = {};
 let projectiles = [];
 
 io.on('connection', function(socket) {
