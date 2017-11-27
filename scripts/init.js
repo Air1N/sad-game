@@ -13,7 +13,7 @@ let userID = null;
 let players = [];
 
 let sadReact = new Image();
-sadReact.src = "assets/sad.png";
+sadReact.src = "./assets/sad.png";
 
 let world = {
     gravity: 0.5,
