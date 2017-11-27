@@ -10,7 +10,7 @@ let lmy = 0;
 
 let userID = null;
 
-let players = [];
+let players = {};
 
 let sadReact = new Image();
 sadReact.src = "./assets/sad.png";

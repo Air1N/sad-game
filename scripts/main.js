@@ -4,19 +4,19 @@ function update() {
 }
 
 function move() {
-    for (let player of players) {
-        player.velocity.y += world.gravity;
-        player.y += player.velocity.y;
+    for (let id in players) {
+        players[id].velocity.y += world.gravity;
+        players[id].y += players[id].velocity.y;
 
-        if (player.y + player.height < world.bottom) {
-            player.onground = false;
+        if (players[id].y + players[id].height < world.bottom) {
+            players[id].onground = false;
         } else {
-            player.onground = true;
+            players[id].onground = true;
         }
         
-        if (player.onground) {
-            player.y = world.bottom - player.height;
-            player.velocity.y = 0;
+        if (players[id].onground) {
+            players[id].y = world.bottom - players[id].height;
+            players[id].velocity.y = 0;
         }
     }
 }
@@ -24,8 +24,8 @@ function move() {
 function render() {
     ctx.clearRect(0, 0, display.width, display.height);
 
-    for (let player of players) {
-        ctx.drawImage(sadReact, player.x, player.y, player.width, player.height);
+    for (let id in players) {
+        ctx.drawImage(sadReact, players[id].x, players[id].y, players[id].width, players[id].height);
     }
 
     requestAnimationFrame(render);
