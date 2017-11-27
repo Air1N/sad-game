@@ -44,19 +44,19 @@ io.on('connection', function(socket) {
 
         players[uID].velocity.y = -20;
     });
-    
+
     socket.on('left', function(uID) {
         io.emit('left', uID);
 
         players[uID].velocity.x = -5;
     });
-    
+
     socket.on('right', function(uID) {
         io.emit('right', uID);
 
         players[uID].velocity.x = 5;
     });
-    
+
     socket.on('idle', function(uID) {
         io.emit('idle', uID);
 
@@ -87,6 +87,8 @@ function move() {
     for (let id in players) {
         players[id].velocity.y += world.gravity;
         players[id].y += players[id].velocity.y;
+
+        players[id].x += players[id].velocity.x;
 
         if (players[id].y + players[id].height < world.bottom) {
             players[id].onground = false;
