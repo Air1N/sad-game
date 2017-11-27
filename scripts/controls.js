@@ -2,8 +2,8 @@ let activeKeys = [];
 
 function keyEvents() {
     if (keyDown("w")) {
-        if (players[0].onground) {
-            players[0].velocity.y = -20;
+        if (players[userID].onground) {
+            players[userID].velocity.y = -20;
         }
     }
 }
